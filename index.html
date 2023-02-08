@@ -35,11 +35,11 @@
         <table>
             <tr>
                 <td>Username:</td>
-                <td><input type="text" id="username" name="username" required></td>
+                <td><input type="text" id="username" name="username" pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,19}$" required></td>
               </tr>
               <tr>
                 <td>Password:</td>
-                <td><input type="password" id="password" name="password" required></td>
+                <td><input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" required></td>
               </tr>
               <tr>
                 <td>Confirm Password:</td>
@@ -47,15 +47,15 @@
               </tr>
             <tr>
                 <td>First Name:</td>
-                <td><input type="text" id="firstName" name="firstName" maxlength="30" required></td>
+                <td><input style="width: 180px;" type="text" id="firstName" name="firstName" maxlength="30" required></td>
               </tr>
               <tr>
                 <td>Middle Initial:</td>
-                <td><input type="text" id="middleInitial" name="middleInitial" maxlength="1"></td>
+                <td><input style="width: 80px;" type="text" id="middleInitial" name="middleInitial" maxlength="1"></td>
               </tr>
               <tr>
                 <td>Last Name:</td>
-                <td><input type="text" id="lastName" name="lastName" maxlength="30" required></td>
+                <td><input style="width: 180px;" type="text" id="lastName" name="lastName" maxlength="30" required></td>
               </tr>
               <tr>
                 <td>Date of Birth:</td>
@@ -63,7 +63,7 @@
               </tr>
               <tr>
                 <td>Social Security:</td>
-                <td><input type="text" id="socialSecurity" name="socialSecurity" maxlength="11" required></td>
+                <td><input style="width: 360px;" type="text" id="socialSecurity" name="socialSecurity" maxlength="11" required></td>
               </tr>
               <tr>
                 <td>Address Line 1:</td>
@@ -75,22 +75,15 @@
               </tr>
               <tr>
                 <td>City:</td>
-                <td><input type="text" id="city" name="city" maxlength="30" required></td>
+                <td><input style="width: 280px;" type="text" id="city" name="city" maxlength="30" required></td>
               </tr>
               <tr>
                 <td>State:</td>
-                <td>
-                  <select id="state" name="state">
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
-                    <!-- options for other states -->
-                  </select>
-                </td>
+                <td><input style="width: 280px;" type="text" id="state" name="state" maxlength="20" required></td>
               </tr>
               <tr>
                 <td>Zip Code:</td>
-                <td><input type="text" id="zipCode" name="zipCode" maxlength="5" required></td>
+                <td><input style="width: 140px;" type="text" id="zipCode" name="zipCode" maxlength="5" required></td>
               </tr>
               <tr>
                 <td>Email:</td>
@@ -101,9 +94,47 @@
                 <td><textarea id="description" name="description" rows="5" cols="30" required></textarea></td>
               </tr>
               <tr>
+                <td>Check all the following boxes that apply:</td>
+                <td>
+
+                  <input type="checkbox" id="chicken-pox" name="chicken-pox">
+                  <label for="chicken-pox">I had Chicken Pox</label><br>
+
+                  <input type="checkbox" id="measles" name="measles">
+                  <label for="measles">I had Measles</label><br>
+                  
+                  <input type="checkbox" id="covid-19" name="covid-19">
+                  <label for="covid-19">I had Covid-19</label><br>
+                  
+                </td>
+                
+               <tr>
+                <td>Own or Rent:</td>
+                <td>  
+                  <input type="radio" id="own" name="own-or-rent" value="own">
+                  <label for="own">Own</label>
+                  
+                  <input type="radio" id="rent" name="own-or-rent" value="rent">
+                  <label for="rent">Rent</label>
+                  
+                  <input type="radio" id="unsure" name="own-or-rent" value="unsure">
+                  <label for="unsure">Unsure</label>
+                </td> 
+               </tr>
+               <tr>
+                  <td>Have you been vaccinated?</td>
+                  <td>
+                    <input type="radio" id="vaccinated-yes" name="vaccinated" value="Yes">
+                    <label for="vaccinated-yes">Yes</label>
+                    <input type="radio" id="vaccinated-no" name="vaccinated" value="No">
+                    <label for="vaccinated-no">No</label>
+                  </Td>
+                  
+               </tr>
+              <tr>
                 <td>Desired Salary:</td>
                 <td><input type="range" id="salaryRange" name="salaryRange" min="200" max="20000" step="100" value="200">
-                  <output id="salaryAmount">200$/year</output></td>
+                <output id="salaryAmount">200$/year</output></td>
               </tr>
               <tr>
                 <td>Position Applied:</td>
@@ -115,63 +146,17 @@
               </tr>
         </table>
         <br><br>
-        <input type="submit" value="Submit Application">
+        <div> 
+          <input type="reset" value="Clear Application"></input>
+          <input type="submit" value="Submit Application"></input>
+        </div>
       </form>
+      <script src="index.js"></script>
     </main>
-    <footer style="background-color: #f2f2f2; padding: 20px; text-align: center;">
+    <footer style="background-color: #333; padding: 20px; text-align: center;">
       <p>Adjecta Medical</p>
       <p>PO BOX 18881 Sugar Land TX 77496</p>
-      <a href="https://www.amazon.com/ap/signin?clientContext=133-1878831-0759242&openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fa%2Fcode&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=amzn_chimera_code_based_linking&openid.mode=checkid_setup&marketPlaceId=ATVPDKIKX0DER&language=en_US&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&pageId=amzn_chimera_code_based_linking&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0" style="background-color: #4CAF50; color: white; padding: 12px 16px; text-decoration: none;">Contact Us</a>
+      <a href="https://www.amazon.com/ap/signin?clientContext=133-1878831-0759242&openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fa%2Fcode&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=amzn_chimera_code_based_linking&openid.mode=checkid_setup&marketPlaceId=ATVPDKIKX0DER&language=en_US&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&pageId=amzn_chimera_code_based_linking&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0" style="background-color: #4CAF50; border-radius: 5px; color: white; padding: 12px 16px; text-decoration: none;">Contact Us</a>
     </footer>
   </body>
-  <script>
-    //store stuff
-    const form = document.getElementById("jobApplication");
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      const formData = new FormData(form);
-      const rtfData = `{\rtf1\\ansi
-      \\b Username : \\b0 ${formData.get("username")}
-      \\b Password : \\b0 ${formData.get("password")}
-      \\b First Name: \\b0 ${formData.get("firstName")}
-      \\b Middle Initial: \\b0 ${formData.get("middleInitial")}
-      \\b Last Name: \\b0 ${formData.get("lastName")}
-      \\b Date of Birth: \\b0 ${formData.get("dob")}
-      \\b Social Security: \\b0 ${formData.get("socialSecurity")}
-      \\b Address Line 1: \\b0 ${formData.get("address1")}
-      \\b Address Line 2: \\b0 ${formData.get("address2")}
-      \\b City: \\b0 ${formData.get("city")}
-      \\b State: \\b0 ${formData.get("state")}
-      \\b Zip Code: \\b0 ${formData.get("zipCode")}
-      \\b Email: \\b0 ${formData.get("email")}
-      \\b Describe yourself: \\b0 ${formData.get("description")}
-      \\b Desired Salary: \\b0 ${formData.get("salaryAmount")}
-      \\b Position Applied: \\b0 ${formData.get("position")}
-      \\b Resume: \\b0 ${formData.get("resume")}
-      }`;
-      const file = new Blob([rtfData], { type: "application/rtf" });
-      const a = document.createElement("a");
-      const url = URL.createObjectURL(file);
-      a.href = url;
-      a.download = "application.rtf";
-      a.click();
-      });
-      // check if confirm pwd valid
-      document.getElementById("jobApplication").addEventListener("submit", function(event) {
-      var password = document.getElementById("password").value;
-      var confirmPassword = document.getElementById("confirmPassword").value;
-
-      if (password !== confirmPassword) {
-      alert("Passwords do not match. Please try again.");
-      event.preventDefault();
-      }
-      });
-      //slide bar
-      var salaryRange = document.getElementById("salaryRange");
-      var salaryAmount = document.getElementById("salaryAmount");
-  
-      salaryRange.oninput = function() {
-      salaryAmount.innerHTML = salaryRange.value + "$/year";
-      }
-  </script>
 </html>
